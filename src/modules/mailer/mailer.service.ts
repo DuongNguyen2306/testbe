@@ -8,7 +8,7 @@ export class MailerService {
   private resend: Resend;
 
   constructor(private readonly configService: ConfigService) {
-    this.resend = new Resend('re_Yi4bng8K_MuBTcY5bEa65r4NE9qKfc4ZL');
+    this.resend = new Resend(this.configService.get('RESEND_API_KEY'));
   }
 
   async sendMail(mailer: MailerDto) {
@@ -16,7 +16,7 @@ export class MailerService {
     
     try {
       const emailOptions: any = {
-        from: from || 'onboarding@resend.dev',
+        from: from || this.configService.get('DEFAULT_FROM_EMAIL') || 'onboarding@resend.dev',
         to: Array.isArray(to) ? to : [to],
         subject,
       };
