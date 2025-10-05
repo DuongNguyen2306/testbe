@@ -8,7 +8,8 @@ export class MailerService {
   private resend: Resend;
 
   constructor(private readonly configService: ConfigService) {
-    this.resend = new Resend(this.configService.get('RESEND_API_KEY'));
+    const apiKey = this.configService.get('RESEND_API_KEY') || 're_Yi4bng8K_MuBTcY5bEa65r4NE9qKfc4ZL';
+    this.resend = new Resend(apiKey);
   }
 
   async sendMail(mailer: MailerDto) {

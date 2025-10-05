@@ -32,8 +32,8 @@ export class AdminService {
 
     try {
       const mailResult = await this.mailerService.sendMail({
-        to: [{ name: businessForm.storeName, address: businessForm.storeMail }],
-        subject: 'Business Approved',
+        to: businessForm.storeMail,
+        subject: 'Business Approved - Back2Use',
         html: businessApprovedTemplate(businessForm.storeName),
       });
       if (!mailResult) {
@@ -67,8 +67,8 @@ export class AdminService {
 
     try {
       const mailResult = await this.mailerService.sendMail({
-        to: [{ name: businessForm.storeName, address: businessForm.storeMail }],
-        subject: 'Business Rejected',
+        to: businessForm.storeMail,
+        subject: 'Business Rejected - Back2Use',
         html: businessRejectedTemplate(businessForm.storeName, note),
       });
       if (!mailResult) {
