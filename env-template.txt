@@ -28,7 +28,7 @@ JWT_REFRESH_SECRET=your_super_secure_refresh_secret_key_here_change_this_in_prod
 JWT_REFRESH_EXPIRES_IN=7d
 
 # ===========================================
-# RESEND EMAIL CONFIGURATION (REPLACES SMTP)
+# RESEND EMAIL CONFIGURATION
 # ===========================================
 # Resend API Key - Get from https://resend.com/
 RESEND_API_KEY=re_Yi4bng8K_MuBTcY5bEa65r4NE9qKfc4ZL
