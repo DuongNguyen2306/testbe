@@ -61,8 +61,8 @@ export class AuthService {
 
     const html = otpEmailTemplate(authDto.name, otpCode);
     const mailer: MailerDto = {
-      to: [{ name: authDto.name, address: authDto.email }],
-      subject: 'Account Verification OTP',
+      to: authDto.email,
+      subject: 'Xác nhận đăng ký tài khoản - Back2Use',
       html,
     };
     try {
@@ -191,8 +191,8 @@ export class AuthService {
     await user.save();
     const html = otpEmailTemplate(user.name, otpCode);
     const mailer: MailerDto = {
-      to: [{ name: user.name, address: user.email }],
-      subject: 'Account Verification OTP',
+      to: user.email,
+      subject: 'Gửi lại mã OTP - Back2Use',
       html,
     };
     try {
@@ -232,8 +232,8 @@ export class AuthService {
     await user.save();
     const html = otpForgotPasswordTemplate(user.name, otpCode);
     const mailer: MailerDto = {
-      to: [{ name: user.name, address: user.email }],
-      subject: 'Password Reset OTP',
+      to: user.email,
+      subject: 'Đặt lại mật khẩu - Back2Use',
       html,
     };
     try {
